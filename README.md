@@ -38,7 +38,7 @@ You may want to ignore all changes in this folder, you can do do by adding `igno
 [submodule "helpers"]
 	path = helpers
 	url = https://github.com/nathanrosspowell/cmake_helpers.git
-  ignore = dirty
+	ignore = dirty
 ```
 
 This will leave you with a folder structure looking like this
