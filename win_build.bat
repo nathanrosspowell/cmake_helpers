@@ -18,3 +18,4 @@ echo [HELPERS]    Starting Build...
     REM Move back out of the build folder.
     popd
 )
+echo [HELPERS]    Done Build.
