@@ -1,13 +1,7 @@
 echo [HELPERS][PRE] Starting...
 
-# Get the directory of this script.
-dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd)"
-
-echo HERE: $PWD
-echo DIR: $dir
-
-
 # If we are in the same directory as the script, then try and move up one folder.
+dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd)"
 if [ $PWD -ef $dir ]
 then 
 	# move up one folder
@@ -20,7 +14,7 @@ fi
 # Look for the CMake config file.
 if [ ! -f CMakeLists.txt ]
 then
-	if [$PWD -ef $script_dir]
+	if [$PWD -ef $dir]
 	then 
 		# Reset the location.
 		popd
