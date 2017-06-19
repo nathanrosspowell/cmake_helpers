@@ -1,12 +1,20 @@
 @echo off
 
 REM Always run the prescript, if it errors the below will not run.
-call %~dp0%_win_prescript.bat 
+call %~dp0%win_prescript.bat 
 
 echo [HELPERS]    Starting Update...
 (
-    REM We want to bump all submodules to their latest versions
-    echo [HELPERS]    Updating all git submodules
-    git submodule update --recursive --remote
+    REM Store all local work that could cause merge problems
+    git stash
+
+    REM Grab latest
+    git pull
+
+    REM Make sure we grab all the submodule changes
+    git submodule update --init
+
+    REM Get back the local changes
+    git stash pop
 )
 echo [HELPERS]    Done Update.
