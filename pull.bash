@@ -9,15 +9,24 @@ then
 fi
 
 # Prescript will abort if there is a problem
-echo [HELPERS][UPDATE] Starting...
+echo [HELPERS][PULL] Starting...
 
-# Get the bleeding edge submodules
-git submodule update --recursive --remote
+# Store all local work that could cause merge problems
+git stash
+
+# Grab latest
+git pull
+
+# Make sure we grab all the submodule changes
+git submodule update --init
+
+# Get back the local changes
+git stash pop
 
 # Undo anything the prescript did.
 if [ "$cmake_helpers_pop_when_finished" = true ]
 then 
 	popd
 fi
-echo [HELPERS][UPDATE] Done.
+echo [HELPERS][PULL] Done.
 

@@ -3,18 +3,11 @@
 REM Always run the prescript, if it errors the below will not run.
 call %~dp0%win_prescript.bat 
 
-echo [HELPERS]    Starting Update...
+REM Prescript didn't error. Do the steps to build the solution.
+echo [HELPERS][UPDATE] Starting Clean...
 (
-    REM Store all local work that could cause merge problems
-    git stash
-
-    REM Grab latest
-    git pull
-
-    REM Make sure we grab all the submodule changes
-    git submodule update --init
-
-    REM Get back the local changes
-    git stash pop
+    REM Get the bleeding edge submodules
+    git submodule update --recursive --remote
 )
-echo [HELPERS]    Done Update.
+echo [HELPERS][UPDATE] Done Clean.
+

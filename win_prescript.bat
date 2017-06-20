@@ -13,8 +13,8 @@ setlocal
     REM We sohuld be in the project root, use the existence of CMakeLists.txt to check.
     REM If we're in a folder that we don't expect, then we need to exit.
     if not exist "CMakeLists.txt" (
-        echo [HELPERS]    ERROR: This folder does not have a CMakeLists.txt file!
-        echo [HELPERS]    ERROR: Do you expect to be executing this script from "!cd!" ?
+        echo [HELPERS][PRE] ERROR: This folder does not have a CMakeLists.txt file!
+        echo [HELPERS][PRE] ERROR: Do you expect to be executing this script from "!cd!" ?
         REM This is an error. Everything will stop after this.
         exit 1 
     )
@@ -33,4 +33,4 @@ if {%cd%\} == {%~dp0} (
 )
 
 REM Finall, let everyone know we're done.
-echo [HELPERS]    Finished executing "_win_prescript.bat" on directory "%cd%"
+echo [HELPERS][PRE] Finished executing "_win_prescript.bat" on directory "%cd%"

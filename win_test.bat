@@ -4,7 +4,7 @@ REM Always run the prescript, if it errors the below will not run.
 call %~dp0%win_prescript.bat 
 
 REM Prescript didn't error. Do the steps to build the solution.
-echo [HELPERS]    Starting Tests...
+echo [HELPERS][TEST] Starting Tests...
 (
     REM Move into build folder to generated intermediate files out of source.
     pushd build
@@ -15,4 +15,4 @@ echo [HELPERS]    Starting Tests...
     REM Move back out of the build folder.
     popd
 )
-echo [HELPERS]    Done Tests.
+echo [HELPERS][TEST] Done Tests.
