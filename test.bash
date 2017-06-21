@@ -15,7 +15,7 @@ echo [HELPERS][TEST] Starting...
 pushd build
 
 # Run the tests
-ctest
+ctest --output-on-failure
 
 # Get out of the build folder
 popd
